@@ -8,7 +8,7 @@ angular.module("reCaptcha", [])
             $http({
                 method: "POST",
                 url: "/register",
-                data: $.param(auth) // format to email=some@mail.com&password=somepass
+                data: $.param(auth), // format to email=some@mail.com&password=somepass
                 headers: { "Content-Type" : "application/x-www-form-urlencoded"}
             });
             window.alert(auth.email);
