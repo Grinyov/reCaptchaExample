@@ -25,6 +25,16 @@ angular.module("reCaptcha", [])
             reCaptcha.type = "text/javascript";
             reCaptcha.async = true;
             reCaptcha.src = "https://www.google.com/recaptcha/api.js?onload=onLoadReCaptchaCallback&render=explicit";
+            var firstScript = document.getElementsByTagName("script")[0];
+            firstScript.parentNode.insertBefore(reCaptcha, firstScript);
+
+            window.onLoadReCaptchaCallback = function() {
+                grecaptcha.render(element.get(0), {
+                    "sitekey": scope.sitekey,
+                    "callback": onRecaptchaSubmit,
+                    "expired-callback": onRecaptchaExpired
+                });
+            };
         }
     }
 
