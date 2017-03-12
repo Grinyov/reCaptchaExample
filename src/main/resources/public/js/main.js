@@ -13,4 +13,13 @@ angular.module("reCaptcha", [])
             });
             window.alert(auth.email);
         }
-    });
+    })
+.directive("recaptcha", function () {
+    return {
+        restrict: "E", scope: {
+            sitekey: "@";
+            ngModel: "="
+        }
+    }
+
+});
