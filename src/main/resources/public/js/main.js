@@ -16,11 +16,13 @@ angular.module("reCaptcha", [])
     })
 .directive("recaptcha", function () {
     return {
+        require: "ngModel",
         restrict: "E", scope: {
-            sitekey: "@";
+
+            sitekey: "@",
             ngModel: "="
         },
-        link: function(scope, element, attrs) {
+        link: function(scope, element, attrs, ngModelCtrl) {
             var reCaptcha = document.createElement("script");
             reCaptcha.type = "text/javascript";
             reCaptcha.async = true;
@@ -41,6 +43,10 @@ angular.module("reCaptcha", [])
             };
             window.onRecaptchaExpired = function(){
                 scope.ngModel = "";
+            };
+            
+            ngModelCtrl.$validators.recaptchaValidate = function () {
+                
             }
         }
     }
