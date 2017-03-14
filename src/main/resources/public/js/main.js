@@ -36,8 +36,12 @@ angular.module("reCaptcha", [])
                 });
             };
 
-            window.onRecaptchaSubmit(){}
-            window.onRecaptchaExpired(){}
+            window.onRecaptchaSubmit = function(gRecaptchaResponse){
+                scope.ngModel = gRecaptchaResponse;
+            };
+            window.onRecaptchaExpired = function(){
+                scope.ngModel = "";
+            }
         }
     }
 
