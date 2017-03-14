@@ -35,6 +35,9 @@ angular.module("reCaptcha", [])
                     "expired-callback": onRecaptchaExpired
                 });
             };
+
+            window.onRecaptchaSubmit(){}
+            window.onRecaptchaExpired(){}
         }
     }
 
