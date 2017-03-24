@@ -26,6 +26,7 @@ public class AuthController {
     public void register(RegisterDto registerDto){
         log.info("{}", registerDto);
 
-        ReCaptchaResponseDto recaptchaResponseDto  = reCaptchaApiClient.verify(registerDto.getRecaptchaResponse());
+        ReCaptchaResponseDto reCaptchaResponse = reCaptchaApiClient.verify(registerDto.getRecaptchaResponse());
+        log.info("{}", reCaptchaResponse);
     }
 }
