@@ -1,5 +1,6 @@
 package com.grinyov.recaptcha.controller;
 
+import com.grinyov.recaptcha.dto.ReCaptchaResponseDto;
 import com.grinyov.recaptcha.dto.RegisterDto;
 import com.grinyov.recaptcha.service.ReCaptchaApiClient;
 import lombok.extern.slf4j.Slf4j;
@@ -24,5 +25,7 @@ public class AuthController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(RegisterDto registerDto){
         log.info("{}", registerDto);
+
+        ReCaptchaResponseDto recaptchaResponseDto  = reCaptchaApiClient.verify(registerDto.getRecaptchaResponse());
     }
 }

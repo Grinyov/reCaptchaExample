@@ -1,5 +1,7 @@
 package com.grinyov.recaptcha.service;
 
+import com.grinyov.recaptcha.dto.ReCaptchaResponseDto;
+import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,4 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ReCaptchaApiClient {
+    public ReCaptchaResponseDto verify(@NonNull String recaptchaResponseDto){
+        return null;
+    }
 }
