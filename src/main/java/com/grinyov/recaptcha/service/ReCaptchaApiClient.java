@@ -1,5 +1,6 @@
 package com.grinyov.recaptcha.service;
 
+
 import com.grinyov.recaptcha.dto.ReCaptchaResponseDto;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,9 +18,10 @@ public class ReCaptchaApiClient {
     private String reCaptchaApiUrl;
     @Value("${app.reCaptcha.secretKey}")
     private String secretKey;
+
     private RestTemplate restTemplate = new RestTemplate();
 
-    public ReCaptchaResponseDto verify(@NonNull String recaptchaResponse){
+    public ReCaptchaResponseDto verify(@NonNull String recaptchaResponse) {
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("secret", secretKey);
         form.add("response", recaptchaResponse);
