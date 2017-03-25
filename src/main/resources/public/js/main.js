@@ -13,10 +13,10 @@ angular.module("reCaptchaDemo", [])
 
             }).then(
                 function(data) {
-                    window.alert("Успешно зарегистрирован");
+                    window.alert("Register success");
                 },
                 function(error) {
-                    window.alert("При регистрации произошла ошибка");
+                    window.alert("Register failed!");
                 }
             )
         }
